@@ -26,10 +26,10 @@ import TodosController from 'App/Controllers/Http/TodosController'
 // })
 
 Route.get('/', 'HomeController.index')
-
 Route.group( ()=>{
 Route.get('/todo' , 'TodosController.index')
 Route.post('/todo','TodosController.store')
-
-
+Route.get('/todo/:id/edit' ,'TodosController.edit')
+Route.patch('/todo/:id' , 'TodosController.update')
+Route.delete('/todo/:id' , 'TodosController.delete')
 }).prefix('api')
