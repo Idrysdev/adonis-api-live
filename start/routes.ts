@@ -37,7 +37,8 @@ Route.patch('/todo/:id' , 'TodosController.update')
 Route.delete('/todo/:id' , 'TodosController.delete')
 }
 ).middleware('auth')
-Route.post ('/register' , 'RegistersController.index')
+Route.post ('/register' , 'AuthController.register')
+Route.post('/login' , 'AuthController.login')
 }).prefix('api')
 
 
