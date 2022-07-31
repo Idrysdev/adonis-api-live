@@ -10,7 +10,7 @@ export default class TodosController {
     }
 
     
-    public async store({request, response}:HttpContext)
+    public async store({request,response}:HttpContext)
     {
         Todo.create({title:request.input("title") , is_completed:true})
         return response.status(201).json({'created':true})
