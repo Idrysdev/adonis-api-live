@@ -4,8 +4,10 @@ import { HttpContext, Response } from "@adonisjs/core/build/standalone";
 import Todo from "App/Models/Todo";
 
 export default class TodosController {
-    public async index(){
-        const todos = Todo.all();
+    public async index({request}){
+        const page = request.input('page' , 1)
+        const limit = request.input('per_page', 3)
+        const todos = Todo.query().paginate(page , limit);
         return todos;
     }
 
